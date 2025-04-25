@@ -7,10 +7,10 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.overlay}>
         <Text style={styles.header}>
-          <Text style={styles.cookhouse}>COOKHOUSE</Text>
+          <Text style={styles.cookhouse}>Sculpture</Text>
         </Text>
         <Text style={styles.subText}>
-          Guyanese, Caribbean & American fusion cuisine restaurant & bar.
+          Track your workout progress and get personalized meal plans.
         </Text>
       </View>
     </View>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   cookhouse: {
-    color: 'yellow',
+    color: '#fff',
     fontWeight: 'bold',
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
