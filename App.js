@@ -4,8 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseConfig'; // make sure this path is correct
-import LegendVideosScreen from './screens/LegendVideosScreen';
-import LegendFeedScreen from './screens/LegendFeedScreen';
 
 // Screens
 import PayScreen from './screens/PayScreen';
@@ -13,11 +11,8 @@ import AuthScreen from './screens/AuthScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
-import MenuScreen from './screens/MenuScreen';
-import TableBookingScreen from './screens/TableBookingScreen';
 import EventBookingScreen from './screens/EventBookingScreen';
 import SaucesScreen from './screens/SaucesScreen';
-import FranchiseScreen from './screens/FranchiseScreen';
 import AccountScreen from './screens/AccountScreen';
 
 const Stack = createNativeStackNavigator();
@@ -26,14 +21,9 @@ const Drawer = createDrawerNavigator();
 const MainDrawer = () => (
   <Drawer.Navigator initialRouteName="Home">
     <Drawer.Screen name="Home" component={HomeScreen} />
-    <Drawer.Screen name="Menu" component={MenuScreen} />
-    <Drawer.Screen name="Table Booking" component={TableBookingScreen} />
     <Drawer.Screen name="Event Booking" component={EventBookingScreen} />
     <Drawer.Screen name="Sauces" component={SaucesScreen} />
-    <Drawer.Screen name="Franchise" component={FranchiseScreen} />
     <Drawer.Screen name="Account" component={AccountScreen} />
-    <Drawer.Screen name="Legend Videos" component={LegendVideosScreen} />
-    <Drawer.Screen name="Legend Feed" component={LegendFeedScreen} />
   </Drawer.Navigator>
 );
 
