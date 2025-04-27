@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Video } from 'expo-av';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace('WorkoutProgress');
+    }, 5000);
+
+    return () => clearTimeout(timer); // Clear timer on unmount
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.overlay}>
@@ -31,9 +38,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  legend: {
-    color: '#fff',
-  },
   cookhouse: {
     color: '#fff',
     fontWeight: 'bold',
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 16,
     textAlign: 'center',
-  }
+  },
 });
 
 export default HomeScreen;

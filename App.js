@@ -15,12 +15,29 @@ import EventBookingScreen from './screens/EventBookingScreen';
 import SaucesScreen from './screens/SaucesScreen';
 import AccountScreen from './screens/AccountScreen';
 
+import WorkoutProgressScreen from './screens/WorkoutProgressScreen';
+import WorkoutChoiceScreen from './screens/WorkoutChoiceScreen';
+import SnapPhotoScreen from './screens/SnapPhotoScreen'; // <-- this line is missing
+
+
+
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+const HomeStack = createNativeStackNavigator();
+
+const HomeStackNavigator = () => (
+  <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+    <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
+    <HomeStack.Screen name="WorkoutProgress" component={WorkoutProgressScreen} />
+    <HomeStack.Screen name="WorkoutChoiceScreen" component={WorkoutChoiceScreen} />
+    <HomeStack.Screen name="SnapPhotoScreen" component={SnapPhotoScreen} />
+  </HomeStack.Navigator>
+);
 
 const MainDrawer = () => (
   <Drawer.Navigator initialRouteName="Home">
-    <Drawer.Screen name="Home" component={HomeScreen} />
+    <Drawer.Screen name="Home" component={HomeStackNavigator} />
     <Drawer.Screen name="Event Booking" component={EventBookingScreen} />
     <Drawer.Screen name="Sauces" component={SaucesScreen} />
     <Drawer.Screen name="Account" component={AccountScreen} />
@@ -58,7 +75,7 @@ export default function App() {
             <Stack.Screen name="Register" component={RegisterScreen} />
           </>
         ) : (
-          <Stack.Screen name="Home" component={MainDrawer} />
+          <Stack.Screen name="Main" component={MainDrawer} />
         )}
       </Stack.Navigator>
     </NavigationContainer>
